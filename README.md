@@ -98,3 +98,33 @@ So now we have a new commit on the kingpin branch. But what if we decided that w
 To show that this works both ways, you can type ```git checkout kingpin``` and open the file again, and see that it belongs to him in that branch. Hopefully you can see how by branching, we've created two copies of the project that we can easily switch between. This is a very powerful feature in git. But what if I don't want a branch? What if I decided I liked giving the project to Kingpin, and I want that to be back on my master branch? Well, that brings us too...
 
 ## Merging
+Merging let's us take two branches and smash them together. Typically, this involves merging a branch back into master. This brings us into the core workflow of git, which involves having a stable master branch and creating what are commonly referred to as 'feature branches' to work on new stuff. When that stuff works, we merge back into master.The important thing is that the master branch is always functioning. 
+
+So let's merge that kingping branch in. First, make sure you're on the master branch with ```git checkout master```. Now, simply enter the command ```git merge kingpin```. You'll get what's known as a 'fast-forward merge', and you notice that if you look at the LICENSE file or the ```git log```, you have successfully merged the two branches together!
+
+### Conflicts
+But alas, you can imaging that merges don't always go well. Imagine the following series of actions:
+
+1. You make a branch off of master called 'feature'
+2. You make some changes and commit them on 'feature'.
+3. You checkout master, make some changes and commit them.
+4. You try to merge.
+
+There's two thing that could happen here.
+
+1. If the commits on the different branches changed different files (or different parts of different files), the git will perform what is called a recursive merge. It will put all of the files together and make a new commit for the merge. Yay, git!
+2. If the commits on the different branches changed the same parts of the same files, then git will have no idea what to do. It's actually impossible for it to  know what to do, since both parts have changed since the branch. This is called a 'merge conflict'. To fix a conflict, you open the conflicted files, edit them to be how you want them, save them, and then commit the changes. And then you're done!
+
+### Workflow to avoid merge conflicts
+You can imagine that merge conflicts are undesireable. However, we can follow certain practices to make sure they never happen or rarely happen. For example, if you're working by yourself, avoiding conflicts is easy: just never edit both branches simultaneously. It's really rare that you'd ever do that if you're working by yourself, so merge conflicts here should be a non-issue.
+
+Working in groups poses some bigger problems. People are going to be merging in their features into the master branch as they finish them. You can alleviate some of the merge stress by always merging master into your feature branch everytime someone changes something. This means at worst you get a few, easy-to-solve merge conflicts. It'll definitely make it easier to merge your branch into master later.
+
+Also, how you structure your features will help a lot too. Each feature should be compact and affect only a few files. If your feature affects all of the files in the project, then you're going to have merge conflicts no matter what. But if you keep your changes specific and precise, then merge conflicts will be a rarity.
+
+# Wrap-up
+Congratulations! You now know enough to work collaboratively with someone on a group project or at a hackathon! In the next workshop, we'll go over advanced git techniques and how to work on really big projects will lots of peolple.
+
+## Important commands
+
+* ```git branch```: Lists your branches, putting an asterisk(*) by the active one.
