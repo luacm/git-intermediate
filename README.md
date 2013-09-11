@@ -127,4 +127,11 @@ Congratulations! You now know enough to work collaboratively with someone on a g
 
 ## Important commands
 
+* ```git clone <url>```: Makes a clone of the repository at the given url.
+* ```git pull <remote name> <branch name>```: Pulls in the new commits from the specified branch on the specified remote repository.
+* ```git push <remote name> <branch name>```: Pushes your new commits from the specified branch to that same branch on the remote repository.
 * ```git branch```: Lists your branches, putting an asterisk(*) by the active one.
+* ```git branch <branch name>```: Creates a branch with the given name, but does not switch to it.
+* ```git checkout <branch name>```: Switches to the specified branch.
+* ```git checkout -b <branch name>```: Creates a branch with the given name, then switches to it.
+* ```git merge <branch name>```: Merges the specified branch into your current branch.
