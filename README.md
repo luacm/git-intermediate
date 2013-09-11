@@ -74,4 +74,27 @@ Now to explain what that 'master' word we've been writing means by looking at on
 Imagine the following scenario: You're writing a paper for class, and you're about halfway done. That's when you realize that you think you need to adjust your thesis, but doing so would require re-writing a few paragraphs. You don't want to lose your current version, so you make a copy of your paper and work on the copy instead, so you have a backup if anything goes wrong. That's branching in a nutshell. It's the concept of working on a copy (called a 'branch') so you can change things without worrying about ruining your current version. It's one of the greatest features in git, and it's really simple to do.
 
 ## Let's make a branch!
+First, let's all start off with the same repository so we can walk through this together. How about the Programming Club website? Yes, it's on Github, and you can totally help work on it. So let's clone that one.
 
+```git clone https://github.com/luacm/luacm.git```
+
+You now have a copy of the website! It takes some setup to get it running on your machine, but if you're curious, you can follow the instructions in the [Readme](https://github.com/luacm/luacm/blob/master/README.md) to get setup. But alas, this isn't the web development workshop!
+
+Do a ```ls``` and a ```git status``` to get your bearings. You'll see there's a bunch of files there. What the files do isn't important. But let's imagine that you wanted to add something to the website. You could change the files right here and commit your changes, but what if you screwed something up? Sure, you could use ```git reset --hard``` to go back to the old version, but doing a reset is a pretty dirty solution you don't want to use too often. It messes with the history and can be easy to make mistakes with.
+
+Instead, this is a perfect time to branch. Type ```git branch``` now. It'll show you a list of branches, which will include things like ```master``` and maybe some others (at the time of writing, there is also a ```news``` branch). Each branch represents a different working copy of the project. There will be an asterisk next to ```master```, indicating that is the branch you're currently on. So let's make a new one!
+
+Type ```git branch kingpin```. This will create a branch called 'kingpin'. However, if  you type ```git branch```, you'll see you're still on master. To switch to kingpin, type ```git checkout kingpin```. Now when you type ```git branch```, you'll see you're on kingpin.
+
+## Let's do some stuff on our new branch!
+Ah, a new branch! Freedom! You can do whatever you want here (add files, delete files, make commits) and it won't affect our master branch at all! This is the beauty of branches. Let's do some stuff to it. 
+
+1. Open up LICENSE in your text editor of choice and change the content to ```This project is the property of Wilson Fisk.```
+2. Stage the change with ```git add LICENSE```
+3. Commit the change with ```git commit -m "Transferred ownership."```
+
+So now we have a new commit on the kingpin branch. But what if we decided that we shouldn't have handed the project over to Marvel's most feared mob boss? Good thing we did this on another branch! Simply type ```git checkout master```. Now if you type ```git branch```, you'll see that we're on the master branch. And if you open up the LICENSE file, you'll see we got our old license back! And, if you type ```git log```, you'll see that our new commit we made transferring the ownership isn't in there at all! 
+
+To show that this works both ways, you can type ```git checkout kingpin``` and open the file again, and see that it belongs to him in that branch. Hopefully you can see how by branching, we've created two copies of the project that we can easily switch between. This is a very powerful feature in git. But what if I don't want a branch? What if I decided I liked giving the project to Kingpin, and I want that to be back on my master branch? Well, that brings us too...
+
+## Merging
