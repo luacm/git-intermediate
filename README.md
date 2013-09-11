@@ -23,6 +23,18 @@ There's two scenarios when starting work on a remote repository:
 1. Someone else already has a repository made, and you want to make a 'clone' of it so you can start working on it.
 2. You have a local repository, and you want to put it on some remote server to act as a backup or to let other people work on it.
 
+## Cloning a repository
+When we make a copy of a repo in git, we call it 'cloning'. To clone, you simply type the command:
+
+```git clone <url of repo>```
+
+At that point, git will pull down all of the code and put it in a folder whose name matches that of the repository. As an example, let's clone this repository! Simply type:
+
+```git clone https://github.com/luacm/git-intermediate.git ```
+
+And ta-da! You now have a local copy of this repository.
+
+
 Let's start with scenario #1!
 
 # Branching
