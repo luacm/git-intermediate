@@ -47,11 +47,28 @@ Now let's go to our local repository and type the following command:
 
 ```git remote add origin <the url you copied>```
 
-You now have added a remote repository! You can pull down the differences between your repos (for instance, if you added a Readme) by typing ```git pull origin master``` or just overwrite the existing remote repository with a copy of yours by typing ```git push -f origin master```. 
+You now have added a remote repository called 'origin'! By convention we call the primary remote repo 'origin' because that's normally where you originally get your code from. You can pull down the differences between your repos (for instance, if you added a Readme) by typing ```git pull origin master``` or just overwrite the existing remote repository with a copy of yours by typing ```git push -f origin master```. 
 
 But we haven't really gone over those commands, have we? Let's do that now!
 
 ## Pulling and Pushing
+We need a way to communicate with the remote repository and share commits. That's where ```pull``` and ```push``` come in.
+
+### Pull
+When you do a pull, you get all of the new commits from the remote repo you specify added to your local repository. And that's it! There isn't much to pulling code at all. As an example, to pull from your origin remote by doing the following:
+
+```git pull origin master```
+
+And then you'll get your code! Don't worry if you don't know what the 'master' part means. We'll be going over it very shortly.
+
+### Push
+Pushing is how you take the commits from your local repo and add them to your remote repo. To do that, all you have to do is type:
+
+```git push origin master```
+
+And it will add your commits to the remote repo. Simple, right? 
+
+Now to explain what that 'master' word we've been writing means by looking at one of the most useful tools git provides you: branching.
 
 # Branching
 Imagine the following scenario: You're writing a paper for class, and you're about halfway done. That's when you realize that you think you need to adjust your thesis, but doing so would require re-writing a few paragraphs. You don't want to lose your current version, so you make a copy of your paper and work on the copy instead, so you have a backup if anything goes wrong. That's branching in a nutshell. It's the concept of working on a copy (called a 'branch') so you can change things without worrying about ruining your current version. It's one of the greatest features in git, and it's really simple to do.
