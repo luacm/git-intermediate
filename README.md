@@ -135,3 +135,7 @@ Congratulations! You now know enough to work collaboratively with someone on a g
 * ```git checkout <branch name>```: Switches to the specified branch.
 * ```git checkout -b <branch name>```: Creates a branch with the given name, then switches to it.
 * ```git merge <branch name>```: Merges the specified branch into your current branch.
+
+## Additional resources
+
+* [LearnGitBranching](http://pcottle.github.io/learnGitBranching/): A fantastic game where you learn git commands, especially branching, as you play.
